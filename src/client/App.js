@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
-import './app.css';
-import { connect } from 'react-redux';
-import { Route, withRouter, Switch } from 'react-router';
-import HeaderComponent from './components/hearder/HeaderComponent';
-import MainComponent from './components/main/MainComponent';
+import { Switch, Route } from 'react-router-dom';
+import Header from './components/hearder/HeaderComponent';
+import Home from './components/home/HomeComponent';
+import Products from './components/product/ProductComponent';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+  componentDidMount() {
+    console.log('haa');
   }
 
   render() {
     return (
       <div>
-        <HeaderComponent />
-        <MainComponent />
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/products" component={Products} />
+        </Switch>
       </div>
     );
   }
 }
 
-export default withRouter(connect()(App));
+export default App;

@@ -1,30 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { routerMiddleware } from 'react-router-redux';
-import { Router } from 'react-router';
-import createBrowserHistory from 'history/createBrowserHistory';
-import { createStore, applyMiddleware } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import thunkMiddleware from 'redux-thunk';
-import reducers from './reducers/rootReducer';
+import { ConnectedRouter } from 'react-router-redux';
+// import { Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Switch, Route } from 'react-router-dom';
+
+import { store, history } from './store/config.store';
 import App from './App';
-
-const history = createBrowserHistory();
-const middleware = routerMiddleware(history);
-
-const store = createStore(
-  reducers,
-  composeWithDevTools(applyMiddleware(middleware, thunkMiddleware))
-);
 
 ReactDOM.render(
   <Provider store={store}>
-    <div>
-      <Router history={history}>
-        <App />
-      </Router>
-    </div>
+    <ConnectedRouter history={history}>
+      <Switch>
+        <Route path="/" component={App} />
+      </Switch>
+    </ConnectedRouter>
   </Provider>,
   document.getElementById('root')
 );
