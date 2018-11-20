@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './app.css';
+import { connect } from 'react-redux';
+import { Route, withRouter, Switch } from 'react-router';
 import HeaderComponent from './components/hearder/HeaderComponent';
 import MainComponent from './components/main/MainComponent';
 
@@ -19,4 +21,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(connect()(App));

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Home from '../home/HomeComponent';
-import Product from '../product/ProductComponent';
+import HomeComponent from '../home/HomeComponent';
+import ProductComponent from '../product/ProductComponent';
 
 class MainComponent extends Component {
   constructor(props) {
@@ -11,12 +11,12 @@ class MainComponent extends Component {
 
   render() {
     return (
-      <main>
+      <div>
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/product" component={Product} />
+          <Route path="/" component={HomeComponent} />
+          <Route path="/products" component={ProductComponent} />
         </Switch>
-      </main>
+      </div>
     );
   }
 }
