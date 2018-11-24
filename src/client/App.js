@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Header from './components/hearder/HeaderComponent';
 import Home from './components/home/HomeComponent';
 import Products from './components/product/ProductComponent';
+import './app.scss';
 
 class App extends Component {
   componentDidMount() {
