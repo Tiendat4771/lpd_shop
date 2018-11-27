@@ -18,6 +18,7 @@
     "antd": "^3.10.8",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "faker": "^4.1.0",
     "history": "^4.7.2",
     "material-ui": "^0.20.2",
     "mongoose": "^5.2.8",

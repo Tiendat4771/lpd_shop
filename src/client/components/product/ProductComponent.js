@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import Typography from '@material-ui/core/Typography';
 
 const style = {
   img: {
     maxHeight: 300
   },
-  wrap_img: {
-    border: '1px solid #ccc',
-    marginRight: 30,
+
+  descrip: {
+    margin: '15px 10px',
     display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#ccc'
+    justifyContent: 'space-between'
+  },
+  link: {
+    textDecoration: 'none'
   }
 };
 
@@ -22,20 +25,36 @@ class ProductComponent extends Component {
   }
 
   render() {
+    const { product } = this.props;
+    console.log(product);
     return (
-      <div style={style.wrap_img}>
-        <Link to="/products">
+      <div>
+        <Link to="/products" style={style.link}>
           <div>
-            <img
-              src="https://static.wixstatic.com/media/82fcd3_4cd855833c7d4d608400c76c8048aae8~mv2_d_1440_1920_s_2.png/v1/fill/w_500,h_667,q_85,usm_0.66_1.00_0.01/82fcd3_4cd855833c7d4d608400c76c8048aae8~mv2_d_1440_1920_s_2.png"
-              alt="products"
-              style={style.img}
-            />
+            <img src={product.image} alt="products" style={style.img} />
+          </div>
+          <div style={style.descrip}>
+            <Typography variant="h6" style={style.heading1}>
+              {product.name}
+            </Typography>
+            <Typography variant="subtitle1" style={style.heading1}>
+              $
+              {product.price}
+            </Typography>
           </div>
         </Link>
       </div>
     );
   }
 }
+ProductComponent.propTypes = {
+  product: PropTypes.shape({
+    name: PropTypes.string,
+    price: PropTypes.string,
+    category: PropTypes.string,
+    image: PropTypes.string,
+    description: PropTypes.string
+  }).isRequired
+};
 
 export default ProductComponent;

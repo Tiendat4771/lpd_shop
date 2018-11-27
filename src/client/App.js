@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Header from './components/hearder/HeaderComponent';
 import Home from './components/home/HomeComponent';
-import Products from './components/product/ProductComponent';
+// import Products from './components/product/ProductComponent';
 import ProductDetail from './components/productDetail/ProductDetail';
 import './app.scss';
 

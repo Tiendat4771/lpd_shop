@@ -1,18 +1,30 @@
 import React, { Component } from 'react';
+import Typography from '@material-ui/core/Typography';
 import Slider from 'react-slick';
+import Divider from '@material-ui/core/Divider';
 import SliderComponent from '../slider/SliderComponent';
-import NewProducts from '../newProducts/NewProducts';
+import Product from '../product/ProductComponent';
+
+import products from '../../store/data';
 
 const style = {
   main: {
     width: '85%',
     margin: '0 auto'
   },
-  products: {
-    // backgroundColor: '#ccc'
-    // marginBottom: 400
+  heading1: {
+    fontSize: '20pt'
+  },
+  heading2: {
+    fontSize: '11pt'
+  },
+  divider: {
+    borderBottom: '0.2em solid #222',
+    marginBottom: 30,
+    width: '98%'
   }
 };
+const productsData = products;
 
 class HomeComponent extends Component {
   constructor(props) {
@@ -21,7 +33,7 @@ class HomeComponent extends Component {
   }
 
   render() {
-    const settings = {
+    const settingsSlider = {
       infinite: true,
       speed: 500,
       slidesToShow: 1,
@@ -29,27 +41,46 @@ class HomeComponent extends Component {
       autoplay: true,
       autoplaySpeed: 3000
     };
+
+    const settingsProducts = {
+      // className: 'center',
+      // infinite: true,
+      // centerMode: true,
+      // slidesToShow: 4,
+      // slidesToScroll: 1,
+      // speed: 2000,
+      // autoplaySpeed: 2000,
+      // cssEase: 'linear',
+      // centerPadding: '60px'
+
+      // dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      centerPadding: '40px'
+    };
     return (
       <div style={style.main}>
-        <Slider {...settings}>
-          <div>
-            <SliderComponent />
-          </div>
-          <div>
-            <SliderComponent />
-          </div>
+        <Slider {...settingsSlider}>
           <div>
             <SliderComponent />
           </div>
         </Slider>
-
-        {/* PRODUCTS */}
-        <div style={style.products}>
-          <NewProducts />
-        </div>
-
-        <div style={style.products}>
-          <NewProducts />
+        <div>
+          <Typography variant="subtitle1" style={style.heading1}>
+            {' '}
+            HÀNG MỚI VỀ
+            {' '}
+          </Typography>
+          <Divider style={style.divider} />
+          <div>
+            <Slider {...settingsProducts}>
+              {productsData.map(product => (
+                <Product product={product} key={product.uuid} />
+              ))}
+            </Slider>
+          </div>
         </div>
       </div>
     );
