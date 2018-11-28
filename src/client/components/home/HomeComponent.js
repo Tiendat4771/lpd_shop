@@ -43,20 +43,10 @@ class HomeComponent extends Component {
     };
 
     const settingsProducts = {
-      // className: 'center',
-      // infinite: true,
-      // centerMode: true,
-      // slidesToShow: 4,
-      // slidesToScroll: 1,
-      // speed: 2000,
-      // autoplaySpeed: 2000,
-      // cssEase: 'linear',
-      // centerPadding: '60px'
-
       // dots: true,
       infinite: true,
       speed: 500,
-      slidesToShow: 3,
+      slidesToShow: 4,
       slidesToScroll: 3,
       centerPadding: '40px'
     };
