@@ -138,6 +138,7 @@ class ProductDetail extends Component {
             </Typography>
             <div>
               <TextField
+                style={{ zIndex: 0 }}
                 id="outlined-simple-start-adornment"
                 className={classNames(classes.margin, classes.textField)}
                 variant="outlined"
@@ -146,7 +147,12 @@ class ProductDetail extends Component {
                 }}
               />
             </div>
-            <Button variant="contained" size="large" color="primary" className={classes.button}>
+            <Button
+              style={{ zIndex: 0, backgroundColor: '#6bdbc2', color: '#ffffff' }}
+              variant="contained"
+              size="large"
+              className={classes.button}
+            >
               Add To Cart
             </Button>
 
