@@ -9,7 +9,7 @@ for (let i = 0; i < 50; i += 1) {
   product.price = faker.commerce.price();
   product.category = faker.commerce.department();
   product.image = faker.random.image();
-  product.description = faker.name.jobDescriptor();
+  product.description = faker.lorem.paragraphs();
   products.push(product);
 }
 

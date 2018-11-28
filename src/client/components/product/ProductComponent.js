@@ -37,7 +37,7 @@ class ProductComponent extends Component {
     const { classes, product } = this.props;
     return (
       <div>
-        <Link to="/products" style={styles.link}>
+        <Link to="detail" style={styles.link}>
           <Card className={classes.card}>
             <CardActionArea>
               <CardMedia

@@ -6,8 +6,7 @@
     "node": true
   },
   "rules": {
-    "[react/forbid-prop-types]": "off",
-    "no-console": "off",
+    "react/no-unused-prop-types": [2, { "skipShapeProps": true }],
     "comma-dangle": "off",
     "no-underscore-dangle": [
       "error",
