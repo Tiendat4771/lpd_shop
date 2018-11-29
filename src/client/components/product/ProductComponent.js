@@ -37,7 +37,7 @@ class ProductComponent extends Component {
     const { classes, product } = this.props;
     return (
       <div>
-        <Link to="detail" style={styles.link}>
+        <Link to={`products/${product.uuid}`} style={styles.link}>
           <Card className={classes.card}>
             <CardActionArea>
               <CardMedia
@@ -63,7 +63,7 @@ class ProductComponent extends Component {
   }
 }
 ProductComponent.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.shape().isRequired,
   product: PropTypes.shape({
     name: PropTypes.string,
     price: PropTypes.string,

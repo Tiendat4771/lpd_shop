@@ -7,7 +7,7 @@ export const getAll = (req, res) => {
 export const getOne = (req, res) => {
   const productId = req.params.id;
   Product.findById(productId, (err, product) => {
-    if (err) return console.log(err);
+    if (err) return console.error(err);
     return res.status(200).json(product);
   });
 };

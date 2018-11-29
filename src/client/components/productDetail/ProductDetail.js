@@ -148,7 +148,7 @@ class ProductDetail extends Component {
               />
             </div>
             <Button
-              style={{ zIndex: 0, backgroundColor: '#6bdbc2', color: '#ffffff' }}
+              style={{ backgroundColor: '#6bdbc2', color: '#ffffff', zIndex: 0 }}
               variant="contained"
               size="large"
               className={classes.button}

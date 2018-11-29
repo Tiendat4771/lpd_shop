@@ -5,6 +5,7 @@ import Home from './components/home/HomeComponent';
 // import Products from './components/product/ProductComponent';
 import Products from './components/products/ProductsComponent';
 import ProductDetail from './components/productDetail/ProductDetail';
+import Admin from './components/admin/Admin';
 import './app.scss';
 
 class App extends Component {
@@ -18,8 +19,9 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route path="/products/:id" component={ProductDetail} />
           <Route path="/products" component={Products} />
-          <Route path="/detail" component={ProductDetail} />
+          <Route path="/admin" component={Admin} />
         </Switch>
       </div>
     );
