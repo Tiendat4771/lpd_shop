@@ -11,11 +11,12 @@ const ProductSchema = new Schema({
     required: true
   },
   category: {
-    type: String,
+    type: [Schema.Types.ObjectId],
+    ref: 'Category',
     required: true
   },
   subCategoty: {
-    type: String,
+    type: [String],
     required: true
   },
   image: {
@@ -25,6 +26,11 @@ const ProductSchema = new Schema({
   description: {
     type: String,
     required: true
+  },
+  active: {
+    type: Boolean,
+    required: true,
+    default: true
   }
 });
 
