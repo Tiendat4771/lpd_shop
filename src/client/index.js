@@ -6,6 +6,7 @@ import { ConnectedRouter } from 'react-router-redux';
 import { BrowserRouter as Switch, Route } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { store, history } from './store/config.store';
+
 import App from './App';
 
 ReactDOM.render(
