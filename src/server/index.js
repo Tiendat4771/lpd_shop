@@ -3,7 +3,6 @@ import setupMiddware from './middleware';
 import connect from './db';
 import restRouter from './api/restRouter';
 
-
 const app = express();
 setupMiddware(app);
 

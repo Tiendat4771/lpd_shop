@@ -13,7 +13,14 @@ export const getOne = (req, res) => {
 };
 
 export const createOne = (req, res) => {
-  const newProduct = req.body;
+  const newProduct = {};
+  newProduct.name = req.body.name;
+  newProduct.price = req.body.price;
+  newProduct.category = req.body.category;
+  newProduct.subCategoty = req.body.subCategoty;
+  newProduct.description = req.body.description;
+  newProduct.active = req.body.active;
+  newProduct.image = req.file.url;
   const product = new Product(newProduct);
   product
     .save()
