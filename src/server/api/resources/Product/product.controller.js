@@ -1,7 +1,14 @@
+import mongoose from 'mongoose';
 import Product from './product.model';
+import Category from '../Category/category.model';
 
 export const getAll = (req, res) => {
-  res.json({ getAll: true });
+  Product.find({})
+    .populate('category')
+    .exec((err, product) => {
+      if (err) console.log(err);
+      res.status(200).json(product);
+    });
 };
 
 export const getOne = (req, res) => {
@@ -13,22 +20,33 @@ export const getOne = (req, res) => {
 };
 
 export const createOne = (req, res) => {
-  const newProduct = req.body;
-  newProduct.image = req.file.url;
-  // newProduct.name = req.body.name;
-  // newProduct.price = req.body.price;
-  // newProduct.category = req.body.category;
-  // newProduct.subCategoty = req.body.subCategoty;
-  // newProduct.description = req.body.description;
-  // newProduct.active = req.body.active;
-  // newProduct.image = req.file.url;
-  const product = new Product(newProduct);
-  product
-    .save()
-    .then((data) => {
-      res.json(data);
-    })
-    .catch((err) => {
-      Error(err);
-    });
+  const category = new Category({
+    _id: new mongoose.Types.ObjectId(),
+    title: req.body.category
+  });
+  category.save().then((categoryDB) => {
+    const newProduct = req.body;
+    newProduct.image = req.file.url;
+    newProduct.category = categoryDB._id;
+    const product = new Product(newProduct);
+    product
+      .save()
+      .then((data) => {
+        res.json(data);
+      })
+      .catch((err) => {
+        Error(err);
+      });
+  });
+
+  // newProduct.category = categoryDB._id;
+  // const product = new Product(newProduct);
+  // product
+  //   .save()
+  //   .then((data) => {
+  //     res.json(data);
+  //   })
+  //   .catch((err) => {
+  //     Error(err);
+  //   });
 };
