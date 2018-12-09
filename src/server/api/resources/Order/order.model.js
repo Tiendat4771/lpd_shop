@@ -2,11 +2,10 @@ import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 const OrderSchema = new Schema({
-  orderDetails: {
-    type: [Schema.Types.ObjectId],
-    ref: 'orderDetail',
-    required: true
-  },
+  orderDetails: [{
+    type: Schema.Types.ObjectId,
+    ref: 'orderDetail'
+  }],
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User',

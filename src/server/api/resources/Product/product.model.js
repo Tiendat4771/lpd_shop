@@ -22,20 +22,16 @@ const ProductSchema = new Schema({
     }
   ],
   subCategoty: {
-    type: [String],
-    required: true
+    type: [String]
   },
   image: {
-    type: String,
-    required: true
+    type: String
   },
   description: {
-    type: String,
-    required: true
+    type: String
   },
   active: {
     type: Boolean,
-    required: true,
     default: true
   }
 });
